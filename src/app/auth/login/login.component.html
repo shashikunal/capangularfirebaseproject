@@ -1,0 +1,35 @@
+<div class="col-md-4 offset-4 mt-2 card">
+  <div class="card-body">
+    <h1 class="text-center h1">Login</h1>
+<form action="" method="get" #form="ngForm" (ngSubmit)="submit(form)">
+  <div class="form-group">
+      <label for="username">username</label>
+      <input
+      required
+
+      minlength="3"
+      pattern="shashi"
+      ngModel  #username="ngModel" (change)="CheckData(username)"
+      type="text" name="username" class="form-control" id="username" />
+      <div class="alert alert-danger mt-2"
+      *ngIf="username.touched && username.invalid">
+      <p *ngIf="username.errors.required">This field is required</p>
+      <p *ngIf="username.errors.minlength">minimum 3 characters</p>
+      <p *ngIf="username.errors.pattern">It is not match</p>
+    </div>
+
+  </div>
+ <div class="form-group">
+    <label for="password">password</label>
+    <input type="password" class="form-control" id="password">
+ </div>
+
+<div class="form-group">
+  <input type="submit" value="submit"
+  [disabled]="form.invalid"
+  class="btn btn-primary float-right">
+</div>
+
+</form>
+</div>
+</div>
